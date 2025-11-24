@@ -52,7 +52,24 @@ export default function MainContent() {
   const tokensByColumn: Record<ColumnKey, Token[]> = useMemo(() => {
     // Sort tokens by bonding progress for Final Stretch and Migrated
     // "New Pairs" uses the newest tokens (first 6 in the array)
-    const newTokens = tokens.slice(0, 6);
+    // Sort by time - newest first (smallest time value)
+    const newTokens = [...tokens]
+      .sort((a, b) => {
+        const parseTime = (timeStr: string) => {
+          const match = timeStr.match(/^(\d+)([smh])$/);
+          if (!match) return 0;
+          const value = parseInt(match[1]);
+          const unit = match[2];
+          switch (unit) {
+            case 's': return value;
+            case 'm': return value * 60;
+            case 'h': return value * 3600;
+            default: return 0;
+          }
+        };
+        return parseTime(a.timeString || "0s") - parseTime(b.timeString || "0s");
+      })
+      .slice(0, 6);
     
     // Remaining tokens for other columns
     const remainingTokens = tokens.slice(6);
