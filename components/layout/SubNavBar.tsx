@@ -1,5 +1,12 @@
 "use client";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 export default function SubNavBar() {
   return (
     <div
@@ -8,26 +15,34 @@ export default function SubNavBar() {
         transition-[filter]
         relative flex flex-row w-full
         h-[28px] gap-[8px]
-        px-[16px] pb-[1px]
-        overflow-hidden
+        px-[16px] py-[2px]
         border-b border-primaryStroke sm:border-primaryStroke/50
       "
     >
       {/* SETTINGS BUTTON */}
       <div className="flex flex-row h-full items-center z-20 gap-[8px]">
-        <button
-          type="button"
-          className="
-            min-w-[24px] min-h-[24px]
-            flex items-center justify-center
-            text-textTertiary hover:text-textSecondary
-            hover:bg-primaryStroke/60
-            transition-colors duration-125 ease-in-out
-            rounded-[4px]
-          "
-        >
-          <i className="ri-settings-3-line text-[14px]" />
-        </button>
+        <TooltipProvider delayDuration={0}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                type="button"
+                className="
+                  min-w-[24px] min-h-[24px]
+                  flex items-center justify-center
+                  text-textTertiary hover:text-textSecondary
+                  hover:bg-primaryStroke/60
+                  transition-colors duration-125 ease-in-out
+                  rounded-[4px]
+                "
+              >
+                <i className="ri-settings-3-line text-[14px]" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              <p>Settings</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </div>
 
       {/* DIVIDER */}
@@ -38,34 +53,52 @@ export default function SubNavBar() {
       {/* STAR + CHART BUTTONS */}
       <div className="flex flex-row h-full items-center z-20 gap-[8px]">
         {/* STAR */}
-        <button
-          type="button"
-          className="
-            min-w-[24px] min-h-[24px]
-            flex items-center justify-center
-            text-textSecondary hover:text-textSecondary
-            hover:bg-primaryStroke/60
-            transition-colors duration-125 ease-in-out
-            rounded-[4px]
-          "
-        >
-          <i className="ri-star-line text-[14px]" />
-        </button>
+        <TooltipProvider delayDuration={0}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                type="button"
+                className="
+                  min-w-[24px] min-h-[24px]
+                  flex items-center justify-center
+                  text-textSecondary hover:text-textSecondary
+                  hover:bg-primaryStroke/60
+                  transition-colors duration-125 ease-in-out
+                  rounded-[4px]
+                "
+              >
+                <i className="ri-star-line text-[14px]" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              <p>Watchlist</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
 
         {/* LINE CHART */}
-        <button
-          type="button"
-          className="
-            min-w-[24px] min-h-[24px]
-            flex items-center justify-center
-            text-textTertiary hover:text-textSecondary
-            hover:bg-primaryStroke/60
-            transition-colors duration-125 ease-in-out
-            rounded-[4px]
-          "
-        >
-          <i className="ri-line-chart-line text-[14px]" />
-        </button>
+        <TooltipProvider delayDuration={0}>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <button
+                type="button"
+                className="
+                  min-w-[24px] min-h-[24px]
+                  flex items-center justify-center
+                  text-textTertiary hover:text-textSecondary
+                  hover:bg-primaryStroke/60
+                  transition-colors duration-125 ease-in-out
+                  rounded-[4px]
+                "
+              >
+                <i className="ri-line-chart-line text-[14px]" />
+              </button>
+            </TooltipTrigger>
+            <TooltipContent side="right">
+              <p>Active positions</p>
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </div>
 
       {/* DIVIDER */}
@@ -85,17 +118,7 @@ export default function SubNavBar() {
             [scrollbar-width:none]
             animate-ticker
           "
-        >
-          {/* required empty spacer from Axiom HTML */}
-          <div
-            style={{
-              width: "0px",
-              height: "100%",
-              position: "relative",
-              display: "flex",
-            }}
-          ></div>
-        </div>
+        ></div>
       </div>
     </div>
   );

@@ -4,9 +4,13 @@ import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
+  DropdownMenuItem,
 } from "@/components/ui/dropdown-menu";
+import { useState } from "react";
 
 export default function TopNav() {
+  const [isSolDropdownOpen, setIsSolDropdownOpen] = useState(false);
+
   const links = [
     "Discover",
     "Pulse",
@@ -40,7 +44,7 @@ export default function TopNav() {
         w-[36px] sm:w-[24px] 2xl:w-[130px]
       "
       >
-        <a href="/?chain=sol">
+        <a href="#">
           <div className="flex flex-row items-center">
             <svg
               width="36"
@@ -60,7 +64,6 @@ export default function TopNav() {
               </defs>
             </svg>
 
-            {/* 2XL full logo */}
             <svg
               width="102"
               height="21"
@@ -68,7 +71,7 @@ export default function TopNav() {
               className="max-w-[102px] hidden 2xl:block text-textPrimary"
               fill="currentColor"
             >
-              {/* Entire path from production HTML */}
+
               <path d="M56.1914..." />
             </svg>
           </div>
@@ -80,7 +83,7 @@ export default function TopNav() {
         <div className="flex overflow-x-auto overflow-y-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           <div className="flex flex-row gap-[4px] items-center">
             {links.map((label) => (
-              <a href={`/${label.toLowerCase()}?chain=sol`} key={label}>
+              <a href="#" key={label}>
                 <button
                   className={`
                     flex flex-row h-[32px] text-nowrap px-[8px] xl:px-[14px]
@@ -129,7 +132,7 @@ export default function TopNav() {
 
       {/* SOL SELECTOR */}
       <div className="hidden sm:block">
-        <DropdownMenu>
+        <DropdownMenu open={isSolDropdownOpen} onOpenChange={setIsSolDropdownOpen}>
           <DropdownMenuTrigger asChild>
             <button
               className="
@@ -138,11 +141,12 @@ export default function TopNav() {
                 h-[32px] pl-[8px] pr-[6px] gap-[6px]
                 justify-center items-center rounded-full
                 transition-all duration-150 ease-in-out active:scale-[0.96]
+                z-50 relative
               "
-              style={{ borderColor: "rgba(20,241,149,0.1)" }}
+
             >
               <img
-                src="/images/sol-fill.svg"
+                src="https://axiom.trade/images/sol-fill.svg"
                 className="w-[16px] h-[16px]"
                 alt="Solana"
               />
@@ -152,21 +156,41 @@ export default function TopNav() {
               <i className="ri-arrow-down-s-line text-textPrimary text-[18px]" />
             </button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent />
+          <DropdownMenuContent align="start" className="w-[160px] bg-[#111111] border-primaryStroke">
+            <DropdownMenuItem className="cursor-pointer hover:bg-primaryStroke/40 focus:bg-primaryStroke/40 gap-3 py-2.5">
+              <img
+                src="https://axiom.trade/images/sol-fill.svg"
+                className="w-[18px] h-[18px]"
+                alt="Solana"
+              />
+              <span className="text-[14px] font-medium text-textPrimary">Solana</span>
+            </DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer hover:bg-primaryStroke/40 focus:bg-primaryStroke/40 gap-3 py-2.5">
+              <img
+                src="https://axiom.trade/images/bnb-fill.svg"
+                className="w-[18px] h-[18px] grayscale-[0.3]"
+                alt="BNB"
+              />
+              <span className="text-[14px] font-medium text-textPrimary">BNB</span>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
         </DropdownMenu>
+        {isSolDropdownOpen && (
+          <div className="fixed inset-0 z-40 bg-black/60 animate-in fade-in-0" />
+        )}
       </div>
 
-      {/* RIGHT SIDE BUTTONS - PIXEL PERFECT */}
+      {/* RIGHT SIDE BUTTONS */}
       <div className="flex items-center gap-[8px] sm:gap-[16px]">
         {/* DEPOSIT */}
         <button
           className="
-            hidden sm:flex bg-primaryBlue h-[32px] px-[12px]
+            hidden sm:flex bg-[#5B7FFF] h-[32px] px-[12px]
             flex-row justify-start items-center rounded-full
-            hover:bg-primaryBlueHover
+            hover:bg-[#5B7FFF]/80
           "
         >
-          <span className="text-nowrap text-background text-[14px] font-bold">
+          <span className="text-nowrap text-black text-[14px] font-bold">
             Deposit
           </span>
         </button>
@@ -208,7 +232,10 @@ export default function TopNav() {
           <i className="ri-wallet-line text-[18px] text-textPrimary" />
 
           <div className="hidden xl:flex items-center gap-[4px]">
-            <img src="/images/sol-fill.svg" className="w-[16px]" />
+            <img
+              src="https://axiom.trade/images/sol-fill.svg"
+              className="w-[16px]"
+            />
             <span className="text-[14px] font-semibold text-textPrimary">
               0
             </span>
@@ -217,7 +244,10 @@ export default function TopNav() {
           <div className="hidden xl:block w-[1px] h-full bg-secondaryStroke"></div>
 
           <div className="hidden xl:flex items-center gap-[4px]">
-            <img src="/images/usdc-perps.svg" className="w-[18px]" />
+            <img
+              src="https://axiom.trade/images/usdc-perps.svg"
+              className="w-[18px]"
+            />
             <span className="text-[14px] font-semibold text-textPrimary">
               0
             </span>
@@ -251,7 +281,10 @@ function MobileNavButtons() {
         flex items-center rounded-full
       "
       >
-        <img src="/images/sol-fill.svg" className="w-[16px]" />
+        <img
+          src="https://axiom.trade/images/sol-fill.svg"
+          className="w-[16px]"
+        />
         <span className="text-[14px] font-medium text-textPrimary">SOL</span>
         <i className="ri-arrow-down-s-line text-[18px] text-textPrimary" />
       </button>
