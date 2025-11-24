@@ -219,7 +219,7 @@ const MainHeader = React.memo(() => {
                 />
 
                 <div className="border-l border-primaryStroke flex h-full px-[3px] gap-[6px] items-center">
-                  {["P1", "P2", "P3"].map((label, idx) => {
+                  {["P1", "P2", "P3"].map((label) => {
                     const isActive = label === "P1";
                     const isLast = label === "P3";
                     return (

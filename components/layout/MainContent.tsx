@@ -4,11 +4,7 @@ import React, { useMemo } from "react";
 import TokenCard from "@/components/tokens/TokenCard";
 import TokenCardSkeleton from "@/components/tokens/TokenCardSkeleton";
 import mockTokens from "@/lib/mockTokens";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+
 import { HoverPopover, FilterOptions } from "@/components/layout/FilterPopover";
 import {
   Tooltip,
@@ -159,7 +155,7 @@ export default function MainContent() {
             justify-center items-center cursor-pointer
           "
                     >
-                      {["P1", "P2", "P3"].map((label, idx) => {
+                      {["P1", "P2", "P3"].map((label) => {
                         const isActive = label === "P1";
                         const isLast = label === "P3";
                         return (

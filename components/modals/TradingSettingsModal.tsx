@@ -15,7 +15,6 @@ interface TradingSettingsModalProps {
 export default function TradingSettingsModal({
   open,
   onOpenChange,
-  preset,
 }: TradingSettingsModalProps) {
   const [activeTab, setActiveTab] = useState<"buy" | "sell">("buy");
   const [slippage, setSlippage] = useState("20");

@@ -112,8 +112,8 @@ class MockWebSocketService {
                 }, 3000 + Math.random() * 2000);
               }
 
-              (update as any).bondingProgress = updatedToken.bondingProgress;
-              (update as any).status = updatedToken.status;
+              (update as Partial<Token>).bondingProgress = updatedToken.bondingProgress;
+              (update as Partial<Token>).status = updatedToken.status;
             }
           }
 
