@@ -39,7 +39,7 @@ export function HoverPopover({
       <PopoverContent
         side="bottom"
         align="center"
-        className="w-[75px] p-0 bg-[#111111] border-primaryStroke flex flex-col gap-[1px]"
+        className="z-[900] w-[75px] p-0 bg-card border-primaryStroke flex flex-col gap-[1px]"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >

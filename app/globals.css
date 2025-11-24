@@ -42,6 +42,7 @@
     --increase: 155 100% 52%; /* #14F195 */
     --decrease: 149 43% 38%; /* #FF4662 */
     --migrating: 228 100% 66%; /* #5B7FFF */
+    --radius: 0.5rem;
   }
 
   .dark {
