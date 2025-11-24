@@ -44,7 +44,7 @@ function TokenCard({
     strokeHex = "#FFD700";
   } else {
     // Bonding
-    tooltipText = `Bonding: ${Math.floor(token.bondingProgress || 0)}%`;
+    tooltipText = `Bonding: ${(token.bondingProgress || 0).toFixed(2)}%`;
     tooltipColor = bondingColorClass;
     strokeHex = bondingColorHex;
   }

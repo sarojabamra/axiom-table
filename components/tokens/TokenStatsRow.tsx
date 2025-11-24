@@ -47,8 +47,7 @@ const TokenStatsRow = React.memo(({ token }: { token: Token }) => {
           <span
             className={`text-[10px] font-bold ${color} transition-colors duration-300`}
           >
-            {v > 0 ? "+" : ""}
-            {v}%
+            {Math.abs(v)}%
           </span>
         )}
         {extra && !isSpecial && (
