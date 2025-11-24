@@ -9,7 +9,7 @@ export default function TokenCardSkeleton() {
         border-b border-primaryStroke/50
         h-[142px] min-h-[142px] sm:h-[116px] sm:min-h-[116px] md:h-[116px] md:min-h-[116px] 
         lg:h-[142px] lg:min-h-[142px] xl:h-[142px] xl:min-h-[142px]
-        overflow-hidden bg-backgroundSecondary
+        overflow-hidden bg-transparent
       "
     >
       {/* MAIN CONTENT */}

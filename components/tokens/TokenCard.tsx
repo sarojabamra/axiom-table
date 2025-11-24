@@ -127,7 +127,7 @@ function TokenCard({
                 <div className="relative">
                   <div className="absolute z-0" style={{ inset: "-12px -8px 1px -4px" }}>
                     <div className="absolute inset-0 z-[5]" />
-                    <div className="bg-backgroundSecondary absolute inset-0 z-0" />
+                    <div className="bg-transparent absolute inset-0 z-0" />
                   </div>
                   <div className="relative flex gap-[8px] items-end z-20">
                     <div className="flex gap-[4px] items-center">
@@ -151,7 +151,7 @@ function TokenCard({
                 <div className="relative flex gap-[8px] items-end">
                   <div className="absolute z-0" style={{ inset: "-2px -8px -4px -4px" }}>
                     <div className="absolute inset-0 z-[5]" />
-                    <div className="bg-backgroundSecondary absolute inset-0 z-0" />
+                    <div className="bg-transparent absolute inset-0 z-0" />
                   </div>
                   <div className="relative flex items-center h-[12px] gap-[4px] z-20">
                     <span className="text-textTertiary text-[12px] font-medium">F</span>
