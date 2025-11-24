@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ["var(--font-inter)"],
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -54,8 +57,15 @@ const config: Config = {
         primaryBlueHover: "hsl(var(--primaryBlueHover))",
         primaryStroke: "hsl(var(--primaryStroke))",
         secondaryStroke: "hsl(var(--secondaryStroke))",
+        backgroundSecondary: "hsl(var(--backgroundSecondary))",
         textPrimary: "hsl(var(--textPrimary))",
+        textSecondary: "hsl(var(--textSecondary))",
         textTertiary: "hsl(var(--textTertiary))",
+        backgroundTertiary: "hsl(var(--backgroundTertiary))",
+        increase: "hsl(var(--increase))",
+        decrease: "hsl(var(--decrease))",
+        pump: "hsl(var(--pump))",
+        migrating: "hsl(var(--migrating))",
       },
       borderRadius: {
         lg: "var(--radius)",

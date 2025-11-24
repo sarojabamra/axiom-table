@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ReduxProvider from "@/components/providers/ReduxProvider";
-import QueryProvider from "@/components/providers/QueryProvider";
+import { Providers } from "@/components/providers/Providers";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Axiom Trade - Token Discovery Table",
@@ -19,11 +22,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
-      <body className={inter.className} suppressHydrationWarning>
-        <ReduxProvider>
-          <QueryProvider>{children}</QueryProvider>
-        </ReduxProvider>
+    <html
+      lang="en"
+      className={`${inter.variable} dark`}
+      suppressHydrationWarning
+    >
+      <body suppressHydrationWarning>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
