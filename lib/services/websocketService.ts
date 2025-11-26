@@ -6,11 +6,6 @@ import { updateTokenBonding } from "./bondingUtils";
 type UpdateCallback = (updates: Array<Partial<Token> & { id: string }>) => void;
 type TokensCallback = (tokens: Token[]) => void;
 
-/**
- * Mock WebSocket Service
- * Simulates real-time server updates for token data
- * Handles token generation, destruction, and time updates
- */
 class MockWebSocketService {
   private updateInterval: NodeJS.Timeout | null = null;
   private timeUpdateInterval: NodeJS.Timeout | null = null;
@@ -21,9 +16,7 @@ class MockWebSocketService {
   private isConnected: boolean = false;
   private nextTokenId: number = 1000;
 
-  /**
-   * Initialize the service with initial token data
-   */
+  // Initialize the service with initial token data
   initialize(tokens: Token[]) {
     // Create a mutable copy to avoid readonly issues
     this.tokens = tokens.map(t => ({ ...t }));
@@ -31,12 +24,7 @@ class MockWebSocketService {
     this.nextTokenId = Math.max(...this.tokens.map(t => parseInt(t.id) || 0)) + 1;
   }
 
-  /**
-   * Connect and start sending updates
-   */
-  /**
-   * Connect and start sending updates
-   */
+  // Connect and start sending updates
   connect() {
     if (this.isConnected) {
       console.warn("WebSocket already connected");
@@ -147,9 +135,7 @@ class MockWebSocketService {
     sendUpdate();
   }
 
-  /**
-   * Disconnect and stop sending updates
-   */
+  // Disconnect and stop sending updates
   disconnect() {
     if (!this.isConnected) return;
 
@@ -165,9 +151,8 @@ class MockWebSocketService {
     console.log("Mock WebSocket disconnected");
   }
 
-  /**
-   * Subscribe to updates
-   */
+  // Subscribe to updates
+  
   subscribe(callback: UpdateCallback) {
     this.callbacks.add(callback);
     return () => {
@@ -175,9 +160,8 @@ class MockWebSocketService {
     };
   }
 
-  /**
-   * Subscribe to full token list updates (for add/remove)
-   */
+  // Subscribe to full token list updates (for add/remove)
+   
   subscribeToTokens(callback: TokensCallback) {
     this.tokensCallbacks.add(callback);
     return () => {
@@ -185,9 +169,7 @@ class MockWebSocketService {
     };
   }
 
-  /**
-   * Get connection status
-   */
+  // Get connection status
   getConnectionStatus(): boolean {
     return this.isConnected;
   }

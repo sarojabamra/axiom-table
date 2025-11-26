@@ -1,8 +1,6 @@
 import type { Token } from "@/lib/types";
 
-/**
- * Generate a new random token
- */
+// Generate a new random token
 export function generateNewToken(id: string): Token {
   const names = ["MoonShot", "RocketCoin", "DiamondHands", "ToTheMoon", "SafeGem", "LuckyDoge", "GoldenBull", "CryptoKing"];
   const symbols = ["HODL", "MOON", "GEM", "SAFE", "BULL", "KING", "RICH", "PUMP"];
@@ -60,9 +58,7 @@ export function generateNewToken(id: string): Token {
   };
 }
 
-/**
- * Parse time string to seconds
- */
+// Parse time string to seconds
 export function parseTimeToSeconds(timeString: string): number {
   const match = timeString.match(/^(\d+)([smh])$/);
   if (!match) return 0;
@@ -78,9 +74,7 @@ export function parseTimeToSeconds(timeString: string): number {
   }
 }
 
-/**
- * Increment time string by 1 second
- */
+// Increment time string by 1 second
 export function incrementTimeString(timeString: string): string {
   const seconds = parseTimeToSeconds(timeString) + 1;
   

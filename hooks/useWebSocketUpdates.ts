@@ -4,10 +4,8 @@ import { useAppDispatch } from "@/lib/redux/hooks";
 import { updateMultipleTokens, setTokens } from "@/lib/redux/slices/tokensSlice";
 import type { Token } from "@/lib/types";
 
-/**
- * Custom hook to manage WebSocket connection and updates
- * Follows atomic architecture principles with single responsibility
- */
+// Custom hook to manage WebSocket connection and updates
+// Follows atomic architecture principles with single responsibility
 export function useWebSocketUpdates(initialTokens: Token[]) {
   const dispatch = useAppDispatch();
 
