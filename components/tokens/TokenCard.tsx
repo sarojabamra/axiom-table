@@ -195,7 +195,7 @@ function TokenCard({
                     <div className="flex bg-pump absolute bottom-[-4px] right-[-4px] p-[1px] w-[16px] h-[16px] rounded-full z-30"
                     >
                       <div className="flex bg-background absolute w-[14px] h-[14px] rounded-full z-30 items-center justify-center"
-                      style={{ border: `1.5px solid ${bondingColorHex}` }}>
+                      style={{ border: `1.5px solid ${strokeHex}` }}>
                         <img
                           src={token.bondingType === "Pump V1" ? "https://axiom.trade/images/pump.svg" : "https://axiom.trade/images/virtual-curve.svg"}
                           alt="Badge"
